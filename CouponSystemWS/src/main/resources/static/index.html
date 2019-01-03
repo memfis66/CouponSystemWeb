@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang ="en">
+
+<head>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" 
+integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="login.css">
+
+<meta charset="windows-1255">
+
+<title>Login to coupon system</title>
+
+</head>
+
+<body>
+	<br>
+	<br>
+	<h1>
+		<b> Coupon System </b>
+	</h1>
+	<br>
+	<br>
+	<br>
+	<br>
+
+	<div >
+		<div class="col-md-4 r" id="login">
+			<form class="mx-auto" action="http://localhost:8080/login" method="POST">
+
+				<div class="form-group" id="left">
+					<label> User Name: </label> <input type="text" name="username"
+						class="form-control" placeholder="Please enter user name">
+				</div>
+				<br>
+				<div class="form-group" id="left">
+					<label> Password: </label> <input type="password" name="password"
+						class="form-control" placeholder="Please enter password">
+				</div>
+				<br>
+				
+				<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="usertype" id="inlineRadio1" value="ADMIN" checked>
+  <label class="form-check-label" for="inlineRadio1">Administrator</label>
+</div>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="usertype" id="inlineRadio2" value="COMPANY">
+  <label class="form-check-label" for="inlineRadio2">Company</label>
+</div>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="usertype" id="inlineRadio3" value="CUSTOMER" >
+  <label class="form-check-label" for="inlineRadio3">Customer</label>
+</div>
+				<br>
+				<div id="centerh">
+					<button type="submit" class="btn btn-primary">
+						<b> Login </b>
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+<!-- <div class="form-group" id="left">
+					<label> Client Type: </label> <select class="form-control"
+						name="usertype">
+						<option value="" disabled="disabled" selected="selected">
+							Please select user type</option>
+						<option value="ADMIN">Administrator</option>
+						<option value="COMPANY">Company</option>
+						<option value="CUSTOMER">Customer</option>
+					</select>
+					
+				</div> -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
+integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" 
+integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" 
+integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+</body>
+</html>
