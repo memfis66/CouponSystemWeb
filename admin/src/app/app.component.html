@@ -1,0 +1,19 @@
+
+<h1>{{title}}</h1>
+<button (click)="Logout()" class="btn btn-danger"> Logout</button>
+<div id='cssmenu'>
+  <ul>
+     <li><a routerLink="/company">Company</a></li>
+     <li><a routerLink="/customer">Customer</a></li>
+  </ul>
+  </div>
+  <br>
+<!-- <nav>
+  <button routerLink="/company">Company</button>
+  <button routerLink="/customer">Customer</button>
+</nav> -->
+<router-outlet></router-outlet>
+
+
+<!-- <app-company></app-company>
+<app-customer></app-customer> -->

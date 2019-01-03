@@ -1,0 +1,120 @@
+<!-- <div>
+  <div class="form-group">
+    <label> Id: </label>
+    <input class="form-control" type="number" name="id" [(ngModel)]="customer.id" placeholder="id">
+  </div>
+  
+  <div>
+    <label> Name: </label>
+    <input type="text" [(ngModel)]="customer.custName" placeholder="name">
+  </div>
+  
+  <div>
+    <label> Password: </label>
+    <input type="password" [(ngModel)]="customer.password" placeholder="password">
+  </div>
+  <br>
+  <button (click)="createNewCustomer(customer)">
+    <b> Create New Customer </b>
+  </button>
+  <br>
+  </div> -->
+  
+  <form class="form-horizontal" style="margin-left: 20px">
+      <div class = "form-group" >
+        <label for="inputId" class="control-label col-sm-2"> Id: </label>
+        <div class="col-sm-6">
+        <input class = "form-control" type="number" name="id" [(ngModel)]="customer.id" placeholder="id">
+        </div>
+      </div>
+      
+      <div class = "form-group">
+        <label for="name" class="control-label col-sm-2"> Name: </label>
+        <div class="col-sm-6">
+        <input class = "form-control" type="text" name="name" [(ngModel)]="customer.custName" placeholder="name">
+      </div>
+      </div>
+      
+      <div class = "form-group">
+        <label for="password" class="control-label col-sm-2"> Password: </label>
+        <div class="col-sm-6">
+        <input class = "form-control" type="password" name="password" [(ngModel)]="customer.password" placeholder="password">
+      </div>
+      </div>
+
+      <div class = "form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button (click)="createNewCustomer(customer)">Create new customer</button>
+      </div>
+      </div>
+      </form>
+  
+  <table style="margin-left: 10px" class="table table-striped table-bordered">   
+      <thead>
+    <tr>
+      <th>ID</th>
+      <th>NAME</th>
+      <th>PASSWORD</th>     
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor ="let customer of customers">
+      <td>{{customer.id}}</td>
+      <td>{{customer.custName}}</td>
+      <td>{{customer.password}} <input type="text" [(ngModel)]="customer.password" placeholder="password"></td>
+      <td> <button class="btn btn-danger" title="delete1"
+        (click)="removeCustomer(customer.id)">x</button></td>
+        <td> <button class="btn btn-success btn-sm" title="update"
+          (click)="updateCustomer(customer)">update customer</button></td>
+    </tr>
+  </tbody>
+  </table>
+  
+  
+      <span>
+          <b> Insert customer id: </b>
+      </span>
+      <br>
+      <form class="form-horizontal" style="margin-left: 20px">
+          <div class = "form-group">
+              <label for="name" class="control-label col-sm-2"> Name: </label>
+              <div class="col-sm-6">
+              <input class = "form-control" type="number" name="id" [(ngModel)]="newCustomer.id" placeholder="Enter customer id">
+            </div>
+            </div>
+            <div class = "form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <button (click)="getCustomer(newCustomer.id)">Get result</button>
+              </div>
+              </div>
+      <!-- <input type="number" name = "id" [(ngModel)]="newCustomer.id" size="25px" placeholder="Enter customer id">
+      <br>
+      <br>
+      <br>
+      <button class="btn btn-primary" (click)="getCustomer(newCustomer.id)">
+          <b> Get result </b>
+      </button>
+      <br>
+      <br> -->
+      </form>
+  
+  <table style="margin-left: 10px" class="table table-striped table-bordered">
+    <thead>
+      <tr>
+          <th>ID</th>
+          <th>NAME</th>
+          <th>PASSWORD </th>         
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+          <td>  {{CustomerForShow.id}}  </td>
+          <td>  {{CustomerForShow.custName}}  </td>
+          <td>  {{CustomerForShow.password}}   </td>
+         
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  

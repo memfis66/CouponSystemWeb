@@ -1,0 +1,107 @@
+<form class="form-horizontal" style="margin-left: 20px">
+<div class = "form-group" >
+  <label for="inputId" class="control-label col-sm-2"> Id: </label>
+  <div class="col-sm-6">
+  <input class = "form-control" type="number" name="id" [(ngModel)]="company.id" placeholder="id">
+  </div>
+</div>
+
+<div class = "form-group">
+  <label for="name" class="control-label col-sm-2"> Name: </label>
+  <div class="col-sm-6">
+  <input class = "form-control" type="text" name="compName" [(ngModel)]="company.compName" placeholder="name">
+</div>
+</div>
+
+<div class = "form-group">
+  <label for="password" class="control-label col-sm-2"> Password: </label>
+  <div class="col-sm-6">
+  <input class = "form-control" type="password" name="password" [(ngModel)]="company.password" placeholder="password">
+</div>
+</div>
+
+<div class = "form-group">
+  <label for="email" class="control-label col-sm-2"> Email: </label>
+  <div class="col-sm-6">
+  <input class = "form-control" type="text" name="email" [(ngModel)]="company.email" placeholder="email">
+</div>
+</div>
+<div class = "form-group">
+  <div class="col-sm-offset-2 col-sm-10">
+    <button (click)="createNewCompany(company)">Create new company</button>
+</div>
+</div>
+</form>
+
+
+<table  style="margin-left: 10px" class="table table-striped table-bordered">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>NAME</th>
+    <th>PASSWORD</th>
+    <th>EMAIL</th>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor ="let company of companies">
+    <td>{{company.id}}</td>
+    <td>{{company.compName}}</td>
+    <td><input type="text" name="password" [(ngModel)]="company.password" placeholder="password"></td>
+    <td><input type="text" name="email" [(ngModel)]="company.email" placeholder="email"></td>
+    <td> <button class="btn btn-danger" title="delete"
+      (click)="removeCompany(company.id)">x</button></td>
+      <td> <button button class="btn btn-success btn-sm" title="update"
+        (click)="updateCompany(company)">update company</button></td>
+  </tr>
+</tbody>
+</table>
+
+
+    <span>
+        <b>Imsert company id: </b>
+    </span>
+    <br>
+    <form class="form-horizontal" style="margin-left: 20px">
+        <div class = "form-group" >
+            <label for="inputId" class="control-label col-sm-2"> Id: </label>
+            <div class="col-sm-6">
+            <input class = "form-control" type="number" name="id" [(ngModel)]="newCompany.id" placeholder="Enter company id">
+            </div>
+          </div>
+    <!-- <input type="number" name = "id" [(ngModel)]="newCompany.id" size="25px" placeholder="Enter company id">
+    <br>
+    <br>
+    <br> -->
+    <div class = "form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button (click)="getCompany(newCompany.id)">Get result</button>
+      </div>
+      </div>
+    <!-- <button class="btn btn-primary" (click)="getCompany(newCompany.id)">
+        <b> Get Company! </b>
+    </button>
+    <br>
+    <br> -->
+    </form>
+
+<table style="margin-left: 10px" class="table table-striped table-bordered">
+    <thead>
+    <tr>
+        <th> <small> ID </small>  </th>
+        <th> <small> NAME </small>  </th>
+        <th> <small> PASSWORD </small>  </th>
+        <th> <small> EMAIL</small>  </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>  {{CompanyForShow.id}}  </td>
+        <td>  {{CompanyForShow.compName}}  </td>
+        <td>  {{CompanyForShow.password}}   </td>
+        <td>  {{CompanyForShow.email}}   </td>
+    </tr>
+  </tbody>
+</table>
+
+
