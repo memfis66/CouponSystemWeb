@@ -1,0 +1,207 @@
+<button (click)="Logout()" class="btn btn-danger"> Logout</button>
+
+<form class="form-horizontal" style="margin-left: 20px">
+  <div class="form-group">
+    <label class="control-label col-sm-2"> Id: </label>
+    <div class="col-sm-6">
+    <input class="form-control" type="number" name="id" [(ngModel)]="coupon.id" placeholder="id">
+  </div>
+</div>
+  
+  <div class="form-group">
+    <label class="control-label col-sm-2"> Title: </label>
+    <div class="col-sm-6">
+    <input class="form-control" type="text" name="title" [(ngModel)]="coupon.title" placeholder="title">
+  </div>
+</div>
+  
+  <div class="form-group">
+    <label class="control-label col-sm-2"> Start date: </label>
+    <div class="col-sm-6">
+    <input class="form-control" type="date" name="startDate" [(ngModel)]="coupon.startDate" placeholder="Start date">
+  </div>
+</div>
+
+  <div class="form-group">
+    <label class="control-label col-sm-2"> End date: </label>
+    <div class="col-sm-6">
+    <input class="form-control" type="date" name="endDate" [(ngModel)]="coupon.endDate" placeholder="End date">
+  </div>
+</div>
+
+  <div class="form-group">
+    <label class="control-label col-sm-2"> Amount: </label>
+    <div class="col-sm-6">
+    <input class="form-control" type="number" name="amount" [(ngModel)]="coupon.amount" placeholder="amount">
+  </div>
+</div>
+
+  <div class="form-group">
+      <label class="control-label col-sm-2"> Coupon type: </label>
+      <div class="col-sm-6">
+    <select class="form-control"  [(ngModel)]="coupon.type" >
+      <option value="RESTORANS">RESTORANS</option>
+      <option value="ELECTRICITY">ELECTRICITY</option>
+      <option value="FOOD">FOOD</option>
+      <option value="HEALTH">HEALTH</option>
+      <option value="SPORTS">SPORTS</option>
+      <option value="CAMPING">CAMPING</option>
+      <option value="TRAVELLING">TRAVELLING</option>
+    </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2"> Message: </label>
+    <div class="col-sm-6">
+    <input class="form-control" type="text" name="message" [(ngModel)]="coupon.message" placeholder="message">
+  </div>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label col-sm-2"> Price: </label>
+    <div class="col-sm-6">
+    <input class="form-control" type="number" name="price" [(ngModel)]="coupon.price" placeholder="price">
+  </div>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label col-sm-2"> Image link: </label>
+    <div class="col-sm-6">
+    <input class="form-control" type="text" name="image" [(ngModel)]="coupon.image" placeholder="image">
+  </div>
+  </div>
+
+  <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+  <button (click)="createNewCoupon(coupon)">
+    <b> Create New Coupon </b>
+  </button>
+  </div>
+</div>
+  </form>
+
+  <table style="margin-left: 10px" class="table table-striped table-bordered">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>TITLE</th>
+      <th>START DATE</th>
+      <th>END DATE</th>
+      <th>AMOUNT</th>
+      <th>COUPON TYPE</th>
+      <th>MESSAGE</th>
+      <th>PRICE</th>
+      <th>IMAGE LINK</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor ="let coupon of coupons">
+      <td>{{coupon.id}}</td>
+      <td>{{coupon.title}}</td>
+      <td>{{coupon.startDate}}</td>
+      <td>{{coupon.endDate}}</td>
+      <td>{{coupon.amount}}</td>
+      <td>{{coupon.type}}</td>
+      <td><input type="text" [(ngModel)]="coupon.message"></td>
+      <td>{{coupon.price}}</td>
+      <td> <input type="text" [(ngModel)]="coupon.image"></td>
+      <td> <button class="btn btn-danger" title="delete1"
+        (click)="removeCoupon(coupon.id)">x</button></td>
+        <td> <button class="btn btn-success btn-sm" title="update"
+          (click)="updateCoupon(coupon)">update coupon</button></td>
+    </tr>
+  </tbody>
+  </table>
+  
+  
+      <form class="form-horizontal" style="margin-left: 20px">
+          <div class="form-group">
+              <label class="control-label col-sm-2"> Insert coupon id: </label>
+              <div class="col-sm-6">
+              <input class="form-control" type="text" name = "id" [(ngModel)]="newCoupon.id" placeholder="Enter coupon id">
+            </div>
+            </div>
+
+            <div class="col-sm-offset-2 col-sm-10">
+                <button (click)="getCoupon(newCoupon.id)">
+                  <b> Get result </b>
+                </button>
+                </div>
+              </form> 
+      <!-- <input type="number" name = "id" [(ngModel)]="newCoupon.id" size="25px" placeholder="Enter coupon id">
+      <br>
+      <br>
+      <br>
+      <button class="btn btn-primary" (click)="getCoupon(newCoupon.id)">
+          <b> Get Coupon! </b>
+      </button>
+      <br>
+      <br>  -->
+     
+      <form class="form-horizontal" style="margin-left: 20px">
+          <div class="form-group">
+              <label class="control-label col-sm-2"> Insert coupon price or date: </label>
+              <div class="col-sm-6">
+              <input class="form-control" type="text" name = "search" [(ngModel)]="newCoupon.price" [(ngModel)]="newCoupon.endDate" placeholder="Enter coupon price or date">
+            </div>
+            </div>
+
+            <div class="col-sm-offset-2 col-sm-10">
+                <button (click)="getCouponsByPrice(newCoupon.price)">
+                  <b> Get Coupons by Price </b>
+                </button>
+                </div>
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button (click)="getCouponsByEndDate(newCoupon.endDate)">
+                      <b> Get Coupons by End Date </b>
+                    </button>
+                    </div>
+              </form> 
+
+    
+    <!-- <form>
+    <input type="text" name = "search" [(ngModel)]="newCoupon.price" [(ngModel)]="newCoupon.endDate" size="25px" placeholder="Enter coupon price or date">
+    <br>
+    <br>
+    <br>
+    <button class="btn btn-primary" (click)="getCouponsByPrice(newCoupon.price)">
+        <b> Get Coupons by Price! </b>
+    </button>
+    <br>
+    <button class="btn btn-primary" (click)="getCouponsByEndDate(newCoupon.endDate)">
+      <b> Get Coupons by End Date! </b>
+  </button>
+    <br>
+    </form> -->
+  
+  <table style="margin-left: 10px" class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>TITLE</th>
+        <th>START DATE</th>
+        <th>END DATE</th>
+        <th>AMOUNT</th>
+        <th>COUPON TYPE</th>
+        <th>MESSAGE</th>
+        <th>PRICE</th>
+        <th>IMAGE LINK</th>          
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor ="let newCoupon of newCoupons">
+        <td>{{newCoupon.id}}</td>
+        <td>{{newCoupon.title}}</td>
+        <td>{{newCoupon.startDate}}</td>
+        <td>{{newCoupon.endDate}}</td>
+        <td>{{newCoupon.amount}}</td>
+        <td>{{newCoupon.type}}</td>
+        <td>{{newCoupon.message}}</td>
+        <td>{{newCoupon.price}}</td>
+        <td>{{newCoupon.image}} </td>         
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  
